@@ -9,48 +9,69 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "PROJECT ONE",
-    category: "Minigame",
+    name: "WWCore",
+    category: "Werewolf Game Plugin",
     description:
-      "Ultimate battle royale plugin combining match automation, player handling, and server efficiency.",
-    tags: ["Java", "PaperMC", "MySQL"],
+      "Complete Weerwolven van Wakkerdam plugin with 12+ roles, night/day cycle, anonymous voting, personal scoreboards, and Discord voice channel integration with auto-mute for eliminated players.",
+    tags: ["Java 21", "Spigot", "JDA", "Discord", "Maven"],
     badge: "Featured",
     links: [
-      { label: "BuiltByBit", url: "#" },
-      { label: "Demo", url: "#" },
+      { label: "GitHub", url: "https://github.com/MilanVos/WWCore" },
     ],
   },
   {
-    name: "PROJECT TWO",
-    category: "Gliders",
+    name: "CIVITASRP",
+    category: "Roleplay Plugin",
     description:
-      "Bring custom glider visuals, smooth flight mechanics, and a more immersive flying experience to your server.",
-    tags: ["Java", "PaperMC", "SpigotMC", "MySQL"],
+      "Dutch roleplay plugin with 4 roles (Burger, Politie, Ambulance, Gemeente), GUI menus, custom items, down/reanimation system, fines, reputation system, and SQLite database storage.",
+    tags: ["Java 21", "Spigot", "SQLite", "GUI", "Maven"],
     badge: "Featured",
     links: [
-      { label: "BuiltByBit", url: "#" },
-      { label: "Demo", url: "#" },
+      { label: "GitHub", url: "https://github.com/MilanVos/CIVITASRP" },
     ],
   },
   {
-    name: "PROJECT THREE",
-    category: "Server Setup",
+    name: "PhoenixCore",
+    category: "Staff Utility Plugin",
     description:
-      "Complete lobby setup with custom configurations, optimized performance, and polished player experience.",
-    tags: ["Setup", "Optimization", "Custom Textures"],
-    badge: "Commissioned",
+      "Professional staff management plugin with staff mode, vanish, freeze with SQLite persistence, punishment GUI, inventory inspection, staff chat, command spy, and Discord webhook audit logging.",
+    tags: ["Java 17", "Spigot", "SQLite", "Discord", "Maven"],
+    badge: "Featured",
     links: [
-      { label: "Private commission", url: "#" },
-      { label: "Watch Video", url: "#" },
+      { label: "GitHub", url: "https://github.com/MilanVos/PhoenixCore" },
     ],
   },
   {
-    name: "PROJECT FOUR",
-    category: "Server Setup",
+    name: "MinestormServer",
+    category: "Custom Server Framework",
     description:
-      "Top-notch WoolWars setup made on 1.8 Spigot Server. This setup includes NPCs, Player Stats, 16+ Maps, and TAB & Scoreboard.",
-    tags: ["High Quality", "PvP", "Setup"],
-    badge: "Commissioned",
-    links: [{ label: "Private commission", url: "#" }],
+      "Custom Minecraft server built on the Minestom framework instead of traditional Spigot. Lightweight, high-performance alternative for specialized server setups.",
+    tags: ["Java 21", "Minestom", "Maven"],
+    badge: null,
+    links: [
+      { label: "GitHub", url: "https://github.com/MilanVos/MinestormServer" },
+    ],
+  },
+  {
+    name: "RewardsSystem",
+    category: "Rewards Plugin",
+    description:
+      "Spigot rewards plugin for automated player rewards and progression tracking. Built for Paper 1.21.11 with clean Maven shade packaging.",
+    tags: ["Java 21", "Spigot", "Maven"],
+    badge: null,
+    links: [
+      { label: "GitHub", url: "https://github.com/MilanVos/RewardsSystem" },
+    ],
+  },
+  {
+    name: "FoxWars",
+    category: "Minigame Plugin",
+    description:
+      "Minecraft minigame plugin built for Spigot 1.20.4. Lightweight and self-contained with no external dependencies.",
+    tags: ["Java 17", "Spigot", "Maven"],
+    badge: null,
+    links: [
+      { label: "GitHub", url: "https://github.com/MilanVos/FoxWars" },
+    ],
   },
 ];
