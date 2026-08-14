@@ -4,7 +4,7 @@
     "buildCommand": "npm install && cd frontend && npm install && npm run build"
   },
   "deploy": {
-    "preDeployCommand": "cd backend && npm install && npx prisma db push --skip-generate && node src/seed.js",
+    "preDeployCommand": "cd backend && npm install && npx prisma db push --skip-generate",
     "startCommand": "node backend/src/index.js"
   }
 }
