@@ -1,0 +1,13 @@
+{
+  "name": "phoenix-site",
+  "version": "1.0.0",
+  "description": "Phoenix portfolio - single service with Next.js frontend and Express backend",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "node backend/src/index.js",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}
