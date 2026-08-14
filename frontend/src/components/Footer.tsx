@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
+import { FaGithub, FaEnvelope } from "react-icons/fa6";
 import PhoenixLogo from "./PhoenixLogo";
 
 export default function Footer() {
@@ -26,20 +26,12 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="https://github.com"
+              href="https://github.com/MilanVos"
               target="_blank"
               className="text-ash-400 hover:text-phoenix-400 transition-colors text-xl"
               aria-label="GitHub"
             >
               <FaGithub />
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              className="text-ash-400 hover:text-phoenix-400 transition-colors text-xl"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin />
             </Link>
             <Link
               href="/contact"
