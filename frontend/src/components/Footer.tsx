@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-white/5 text-center">
           <p className="text-xs text-ash-500">
-            &copy; {new Date().getFullYear()} Phoenix Portfolio. Built with Next.js & Express. Hosted on Railway.
+            &copy; {new Date().getFullYear()} Phoenix Portfolio.
           </p>
         </div>
       </div>
