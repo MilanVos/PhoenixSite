@@ -1,13 +1,10 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS"
+    "buildCommand": "npm install && cd frontend && npm install && npm run build"
   },
   "deploy": {
-    "startCommand": "npm run start",
-    "healthcheckPath": "/",
-    "healthcheckTimeout": 100,
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 10
+    "preDeployCommand": "cd backend && npm install && npx prisma db push --skip-generate && node src/seed.js",
+    "startCommand": "node backend/src/index.js"
   }
 }
