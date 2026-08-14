@@ -97,8 +97,13 @@ async function runSeed() {
       create: { username, passwordHash },
     });
 
+    const languageCount = await prisma.language.count();
+    if (languageCount > 0) {
+      console.log("Seed skipped - data already exists");
+      return;
+    }
+
     await prisma.language.createMany({
-      skipDuplicates: true,
       data: [
         { name: "JavaScript", category: "Frontend", level: "Geavanceerd", color: "#f7df1e", order: 1 },
         { name: "TypeScript", category: "Frontend", level: "Geavanceerd", color: "#3178c6", order: 2 },
@@ -117,7 +122,6 @@ async function runSeed() {
     });
 
     await prisma.project.createMany({
-      skipDuplicates: true,
       data: [
         {
           title: "PhoenixSite",
