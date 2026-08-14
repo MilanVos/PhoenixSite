@@ -114,9 +114,7 @@ export default function AdminLoginPage() {
             </motion.button>
           </form>
 
-          <p className="text-xs text-ash-500 text-center mt-6">
-            Standaard: admin / admin123 (verander dit in productie!)
-          </p>
+
         </div>
       </motion.div>
     </div>
