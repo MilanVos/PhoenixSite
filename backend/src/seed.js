@@ -17,11 +17,7 @@ async function main() {
     create: { username, passwordHash },
   });
 
-  await prisma.project.deleteMany({});
-  await prisma.language.deleteMany({});
-
-  console.log("Cleared all projects and languages");
-  console.log(`Admin user: ${username} / ${password}`);
+  console.log(`Admin user ready: ${username}`);
 }
 
 main()
