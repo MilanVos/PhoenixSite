@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "postinstall": "cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && npx prisma db push --skip-generate && node src/seed.js && node src/index.js",
+    "build": "cd frontend && npm run build && cd ../backend && npx prisma db push --skip-generate",
+    "start": "node backend/src/index.js",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev"
   }

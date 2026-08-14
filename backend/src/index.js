@@ -79,6 +79,60 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Phoenix API running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Phoenix API running on http://0.0.0.0:${PORT}`);
+  runSeed();
 });
+
+async function runSeed() {
+  try {
+    const { default: bcrypt } = await import("bcryptjs");
+    const username = process.env.ADMIN_USERNAME || "admin";
+    const password = process.env.ADMIN_PASSWORD || "admin123";
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    await prisma.admin.upsert({
+      where: { username },
+      update: {},
+      create: { username, passwordHash },
+    });
+
+    await prisma.language.createMany({
+      skipDuplicates: true,
+      data: [
+        { name: "JavaScript", category: "Frontend", level: "Geavanceerd", color: "#f7df1e", order: 1 },
+        { name: "TypeScript", category: "Frontend", level: "Geavanceerd", color: "#3178c6", order: 2 },
+        { name: "React", category: "Frontend", level: "Geavanceerd", color: "#61dafb", order: 3 },
+        { name: "Next.js", category: "Frontend", level: "Geavanceerd", color: "#ffffff", order: 4 },
+        { name: "Vue.js", category: "Frontend", level: "Gevorderd", color: "#42b883", order: 5 },
+        { name: "Tailwind CSS", category: "Frontend", level: "Geavanceerd", color: "#06b6d4", order: 6 },
+        { name: "Node.js", category: "Backend", level: "Geavanceerd", color: "#339933", order: 7 },
+        { name: "Express", category: "Backend", level: "Geavanceerd", color: "#ffffff", order: 8 },
+        { name: "Python", category: "Backend", level: "Gevorderd", color: "#3776ab", order: 9 },
+        { name: "PostgreSQL", category: "Database", level: "Gevorderd", color: "#4169e1", order: 10 },
+        { name: "Prisma", category: "Database", level: "Gevorderd", color: "#2d3748", order: 11 },
+        { name: "Docker", category: "DevOps", level: "Beginner", color: "#2496ed", order: 12 },
+        { name: "Git", category: "Tools", level: "Geavanceerd", color: "#f05032", order: 13 },
+      ],
+    });
+
+    await prisma.project.createMany({
+      skipDuplicates: true,
+      data: [
+        {
+          title: "PhoenixSite",
+          description: "Persoonlijke portfolio website gebouwd met Next.js, Express en PostgreSQL. Gehost op Railway.",
+          technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Express", "Prisma", "PostgreSQL"],
+          liveUrl: null,
+          githubUrl: "https://github.com/MilanVos/PhoenixSite",
+          featured: true,
+          order: 1,
+        },
+      ],
+    });
+
+    console.log("Seed completed");
+  } catch (err) {
+    console.error("Seed error (non-fatal):", err.message);
+  }
+}
